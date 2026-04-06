@@ -1,4 +1,4 @@
-from src.base.bot import *
+from src.base import *
 
 @bot.event
 async def on_ready():

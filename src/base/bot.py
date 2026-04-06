@@ -1,4 +1,5 @@
 from src.base.modules import *
+from src.database.mongodb import *
 
 load_dotenv()
 TOKEN = os.getenv("token")
