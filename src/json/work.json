@@ -1,0 +1,24 @@
+{
+    "job": [
+        {
+            "name": "dish washer",
+            "salary": 50000,
+            "bonus": 10000
+        },
+        {
+            "name": "cleaner",
+            "salary": 65000,
+            "bonus": 15000
+        },
+        {
+            "name": "driver",     
+            "salary": 100000,   
+            "bonus": 20000
+        },
+        {
+            "name": "shipper",         
+            "salary": 60000,    
+            "bonus": 10000
+        }
+    ]
+}

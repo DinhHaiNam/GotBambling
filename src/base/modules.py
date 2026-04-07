@@ -3,6 +3,7 @@ import sys
 import math
 import discord
 import random
+import json
 from dotenv import load_dotenv
 from discord.ext import commands
 from pymongo import *

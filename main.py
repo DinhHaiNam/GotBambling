@@ -1,5 +1,4 @@
-from src.base.bot import *
-from src.commands import *
-from src.events import *
+from src.GotBambling import GotBambling
 
-bot.run(TOKEN)
+if __name__ == "__main__":
+    GotBambling()

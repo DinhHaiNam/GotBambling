@@ -1,6 +1,6 @@
 from src.base import *
 from src.base.random_algo import gb_random_cf
-from src.database.mongodb import ExistUser, Pay
+from src.database.mongodb import ExistUser, ToSAccepted, Pay, CheckWallet
 
 @bot.command(aliases=["cf", "coin"])
 async def coinflip(ctx, choices: str, bet: int = 1):
