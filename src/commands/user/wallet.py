@@ -14,4 +14,7 @@ async def wallet(ctx):
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
         await ctx.send(f"Your Balance: {shorthand(CheckWallet(ctx.author.id))}")
     else:
-        await ctx.send("You must register first!")
+        if ExistUser(ctx.author.id) == False:
+            await ctx.send("You must register first!")
+        elif ToSAccepted(ctx.author.id) == False:
+            await ctx.send("You must agree with our Term of Serivce")

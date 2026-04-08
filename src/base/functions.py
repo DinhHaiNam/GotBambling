@@ -22,3 +22,11 @@ def GetBonus(bonus: int) -> int:
         return random.randrange(1, bonus)
     else:
         return 0
+    
+def GetPunish(forfeit: int) -> int:
+    rand1 = random.choice([1, 2, 3, 4, 5])
+    rand2 = random.choice([1, 2, 3, 4, 5])
+    if rand1 == rand2:
+        return forfeit
+    else:
+        return 0

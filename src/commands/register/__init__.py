@@ -5,5 +5,5 @@
 # For more information, see README.md and LICENSE
 # -------------------------------------------------------
 
-from src.commands.user.register import confirm
-from src.commands.user.register import register
+from src.commands.register.confirm import *
+from src.commands.register.register import *

@@ -10,7 +10,7 @@ from src.base.random_algo import gb_random_cf
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, CheckWallet
 
 @bot.command(aliases=["cf", "coin"])
-async def coinflip(ctx, choices: str, bet: int = 1):
+async def coinflip(ctx, choices: str = "n", bet: int = 1):
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
         if CheckWallet(ctx.author.id) < bet:
             await ctx.send("Not enough money!")
@@ -30,4 +30,7 @@ async def coinflip(ctx, choices: str, bet: int = 1):
                     Pay(ctx.author.id, "decrease", bet)
     
     else:
-        await ctx.send("You must register first!")
+        if ExistUser(ctx.author.id) == False:
+            await ctx.send("You must register first!")
+        elif ToSAccepted(ctx.author.id) == False:
+            await ctx.send("You must agree with our Term of Serivce")

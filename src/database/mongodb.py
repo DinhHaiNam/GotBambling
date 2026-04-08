@@ -24,6 +24,14 @@ def UserRegister(id: int):
         "_id": id,
         "wallet": 500000,
         "tos": 0,
+        "study": 0,
+        "level": 0,
+        "last_action": [
+            {
+                "work": "",
+                "study": ""
+            }
+        ]
     }
     col.insert_one(new_user)
     print(f"Registered for user: {id}")
@@ -45,3 +53,15 @@ def Pay(id: int, option: str, amount: int):
         
     col.update_one(user, new_balance)
     print(log)
+
+class LastAction:
+    @staticmethod
+    def Check(id: int, option: str) -> str:
+        user = col.find_one({"_id": id})
+        return user["last_action"][0][option]
+    
+    @staticmethod
+    def Update(id: int, option: str, value: str):
+        user = {"_id": id}
+        last_action = {"$set": {f"last_action.0.{option}": value}}
+        col.update_one(user, last_action)

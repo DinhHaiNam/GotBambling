@@ -6,4 +6,5 @@
 # -------------------------------------------------------
 
 from src.commands.gamble import *
+from src.commands.register import *
 from src.commands.user import *

@@ -64,4 +64,4 @@ def gb_random_dice() -> int:
     randL = pick(randX, randY, bit())
     randR = pick(randY, randZ, bit())
 
-    return pick(randL, randR, )
+    return pick(randL, randR, bit())

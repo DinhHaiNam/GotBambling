@@ -8,7 +8,7 @@
 from src.base import *
 from src.database.mongodb import *
 
-@bot.command()
+@bot.command(aliases=["agree"])
 async def confirm(ctx):
     user = col.find_one({"_id": ctx.author.id})
     if user["tos"] == 0:

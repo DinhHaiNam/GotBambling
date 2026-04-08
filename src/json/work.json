@@ -1,5 +1,5 @@
 {
-    "job": [
+    "part-time-job": [
         {
             "name": "dish washer",
             "salary": 50000,
@@ -19,6 +19,16 @@
             "name": "shipper",         
             "salary": 60000,    
             "bonus": 10000
+        }
+    ],
+    "punish": [
+        {
+            "name": "None",
+            "forfeit": 0
+        },
+        {
+            "name": "not obey traffic rules",
+            "forfeit": 500000
         }
     ]
 }

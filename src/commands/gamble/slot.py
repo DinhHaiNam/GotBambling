@@ -43,4 +43,7 @@ async def slot(ctx, bet: int = 1):
             await ctx.send(message)
             
     else:
-        await ctx.send("You must register first!")
+        if ExistUser(ctx.author.id) == False:
+            await ctx.send("You must register first!")
+        elif ToSAccepted(ctx.author.id) == False:
+            await ctx.send("You must agree with our Term of Serivce")
