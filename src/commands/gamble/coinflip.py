@@ -24,10 +24,10 @@ async def coinflip(ctx, choices: str = "n", bet: int = 1):
 
                 if (choices.lower() == "s" and rand == 0) or (choices.lower() == "n" and rand == 1):
                     await ctx.send(f"You won **{bet}** =)")
-                    Pay(ctx.author.id, "increase", bet)
+                    Pay(ctx.author.id, bet)
                 else:
                     await ctx.send(f"You lost **-{bet}** =(")
-                    Pay(ctx.author.id, "decrease", bet)
+                    Pay(ctx.author.id, -bet)
     
     else:
         if ExistUser(ctx.author.id) == False:

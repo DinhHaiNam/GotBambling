@@ -5,8 +5,5 @@
 # For more information, see README.md and LICENSE
 # -------------------------------------------------------
 
-from src.commands.gamble import *
-from src.commands.register import *
-from src.commands.study import *
-from src.commands.user import *
-from src.commands.work import *
+from src.commands.study.exam import *
+from src.commands.study.study import *

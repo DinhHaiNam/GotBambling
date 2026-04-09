@@ -1,0 +1,78 @@
+{
+    "commands": [
+        {
+            "Gamble": [
+                {
+                    "name": "coinflip",
+                    "example": "gb coinflip {N / S} {bet}",
+                    "aliases": "cf, coin",
+                    "about": "Guess the coin face"
+                },
+                {
+                    "name": "dice",
+                    "example": "gb dice {1, 2, 3, 4, 5, 6} {bet}",
+                    "aliases": "d",
+                    "about": "Guess the dice"
+                },
+                {
+                    "name": "slot",
+                    "example": "gb slot {bet}",
+                    "aliases": "s",
+                    "about": "Roll a slot and bet"
+                }
+            ]
+        },
+        {
+            "Register": [
+                {
+                    "name": "confirm",
+                    "example": "gb confirm",
+                    "aliases": "agree",
+                    "about": "Confirm / Agree with Term of Service"
+                },
+                {
+                    "name": "register",
+                    "example": "gb register",
+                    "aliases": "",
+                    "about": "User register"
+                }
+            ]
+        },
+        {
+            "Study": [
+                {
+                    "name": "study",
+                    "example": "gb study",
+                    "aliases": "",
+                    "about": "Study to gain points"
+                }
+            ]
+        },
+        {
+            "User": [
+                {
+                    "name": "help",
+                    "example": "gb help",
+                    "aliases": "h",
+                    "about": "Show all commands with helps"
+                },
+                {
+                    "name": "wallet",
+                    "example": "gb wallet",
+                    "aliases": "money, cash",
+                    "about": "Check wallet balance"
+                }
+            ]
+        },
+        {
+            "Work": [
+                {
+                    "name": "work",
+                    "example": "gb work",
+                    "aliases": "w",
+                    "about": "Work and earn money"
+                }
+            ]
+        }
+    ]
+}

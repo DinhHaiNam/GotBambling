@@ -30,3 +30,7 @@ def GetPunish(forfeit: int) -> int:
         return forfeit
     else:
         return 0
+    
+def load_json(path: str):
+    with open(path, "r") as f:
+        return json.load(f)

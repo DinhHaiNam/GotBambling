@@ -34,11 +34,11 @@ async def slot(ctx, bet: int = 1):
                     bet *= 2
                 
                 message += f"You Won **{bet}** =)"
-                Pay(ctx.author.id, "increase", bet)
+                Pay(ctx.author.id, bet)
             
             else:
                 message += f"You Lost **-{bet}** =("
-                Pay(ctx.author.id, "decrease", bet)
+                Pay(ctx.author.id, -bet)
 
             await ctx.send(message)
             

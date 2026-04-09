@@ -22,11 +22,11 @@ async def dice(ctx, choice: int = 1, bet: int = 1):
             if choice == dice:
                 bet *= 3
                 message += f"You Won **{bet}** =)"
-                Pay(ctx.author.id, "increase", bet)
+                Pay(ctx.author.id, bet)
             
             else:
                 message += f"You Lost **-{bet}** =("
-                Pay(ctx.author.id, "decrease", bet)
+                Pay(ctx.author.id, -bet)
 
             await ctx.send(message)
 

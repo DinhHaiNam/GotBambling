@@ -23,7 +23,7 @@ def UserRegister(id: int):
     new_user = {
         "_id": id,
         "wallet": 500000,
-        "tos": 0,
+        "tos": False,
         "study": 0,
         "level": 0,
         "last_action": [
@@ -34,25 +34,20 @@ def UserRegister(id: int):
         ]
     }
     col.insert_one(new_user)
-    print(f"Registered for user: {id}")
 
 def CheckWallet(id: int) -> int:
     user = col.find_one({"_id": id})
     return user["wallet"]
 
-def Pay(id: int, option: str, amount: int):
+def Pay(id: int, amount: int):
     user = {"_id": id}
-
-    if option == "increase":
-        new_balance = {"$inc": {"wallet": amount}}
-        log = f"{id}'s wallet increased {amount}"
-
-    elif option == "decrease":
-        new_balance = {"$inc": {"wallet": -amount}}
-        log = f"{id}'s wallet decreased {amount}"
-        
+    new_balance = {"$inc": {"wallet": amount}}
     col.update_one(user, new_balance)
-    print(log)
+
+def Update(id: int, name: str, option: str, value): #set, inc, ...
+    user = {"_id": id}
+    new_value = {f"${option}": {name: value}}
+    col.update_one(user, new_value)
 
 class LastAction:
     @staticmethod

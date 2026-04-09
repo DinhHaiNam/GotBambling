@@ -1,0 +1,20 @@
+{
+    "lessons": [
+        {
+            "name": "math",
+            "point": 2
+        },
+        {
+            "name": "science",
+            "point": 2
+        },
+        {
+            "name": "history",
+            "point": 1
+        },
+        {
+            "name": "programming",
+            "point": 2
+        }
+    ]
+}

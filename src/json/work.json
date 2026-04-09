@@ -23,11 +23,7 @@
     ],
     "punish": [
         {
-            "name": "None",
-            "forfeit": 0
-        },
-        {
-            "name": "not obey traffic rules",
+            "name": "didnt obey traffic rules",
             "forfeit": 500000
         }
     ]
