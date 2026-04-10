@@ -15,6 +15,22 @@
         {
             "name": "programming",
             "point": 2
+        },
+        {
+            "name": "physic",
+            "point": 2
+        },
+        {
+            "name": "chemistry",
+            "point": 2
+        },
+        {
+            "name": "music",
+            "point": 1
+        },
+        {
+            "name": "art",
+            "point": 1
         }
     ]
 }

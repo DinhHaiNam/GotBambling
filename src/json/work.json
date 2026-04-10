@@ -2,29 +2,37 @@
     "part-time-job": [
         {
             "name": "dish washer",
-            "salary": 50000,
-            "bonus": 10000
+            "salary": 15,
+            "bonus": 5
         },
         {
             "name": "cleaner",
-            "salary": 65000,
-            "bonus": 15000
+            "salary": 20,
+            "bonus": 5
         },
         {
             "name": "driver",     
-            "salary": 100000,   
-            "bonus": 20000
+            "salary": 30,   
+            "bonus": 10
         },
         {
             "name": "shipper",         
-            "salary": 60000,    
-            "bonus": 10000
+            "salary": 25,    
+            "bonus": 5
         }
     ],
     "punish": [
         {
-            "name": "didnt obey traffic rules",
-            "forfeit": 500000
+            "name": "ran a red light",
+            "forfeit": 50
+        },
+        {
+            "name": "parked illegally",
+            "forfeit": 10
+        },
+        {
+            "name": "didnt turn on the signal when turning",
+            "forfeit": 15
         }
     ]
 }

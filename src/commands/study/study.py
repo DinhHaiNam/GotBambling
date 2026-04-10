@@ -7,7 +7,7 @@
 
 from src.base import *
 from src.base.functions import load_json
-from src.database.mongodb import ExistUser, ToSAccepted, Pay, LastAction, Update
+from src.database.mongodb import ExistUser, ToSAccepted, Pay, LastAction, Education
 
 study_json = load_json("src/json/study.json") 
 lessons = study_json["lessons"]
@@ -23,8 +23,8 @@ async def study(ctx):
             name = lesson["name"]
             point = lesson["point"]
 
-            Update(ctx.author.id, "study", "inc", point)
-            Pay(ctx.author.id, -50000)
+            Education.Update(ctx.author.id, point)
+            Pay(ctx.author.id, -5)
             await ctx.send(f"You learned {name} and gained {point} study point(s)!")
 
             LastAction.Update(ctx.author.id, "study", date)

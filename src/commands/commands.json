@@ -41,6 +41,18 @@
         {
             "Study": [
                 {
+                    "name": "education",
+                    "example": "gb education",
+                    "aliases": "edu",
+                    "about": "Check your education level"
+                },
+                {
+                    "name": "exam",
+                    "example": "",
+                    "aliases": "",
+                    "about": ""
+                },
+                {
                     "name": "study",
                     "example": "gb study",
                     "aliases": "",

@@ -5,5 +5,6 @@
 # For more information, see README.md and LICENSE
 # -------------------------------------------------------
 
+from src.commands.study.education import *
 from src.commands.study.exam import *
 from src.commands.study.study import *

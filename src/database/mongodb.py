@@ -22,10 +22,17 @@ def ToSAccepted(id: int) -> bool:
 def UserRegister(id: int):
     new_user = {
         "_id": id,
-        "wallet": 500000,
+        "wallet": 50,
         "tos": False,
         "study": 0,
         "level": 0,
+        "job": [
+            {
+                "name": "",
+                "salary": 0,
+                "bonus": 0
+            }
+        ],
         "last_action": [
             {
                 "work": "",
@@ -44,11 +51,6 @@ def Pay(id: int, amount: int):
     new_balance = {"$inc": {"wallet": amount}}
     col.update_one(user, new_balance)
 
-def Update(id: int, name: str, option: str, value): #set, inc, ...
-    user = {"_id": id}
-    new_value = {f"${option}": {name: value}}
-    col.update_one(user, new_value)
-
 class LastAction:
     @staticmethod
     def Check(id: int, option: str) -> str:
@@ -60,3 +62,20 @@ class LastAction:
         user = {"_id": id}
         last_action = {"$set": {f"last_action.0.{option}": value}}
         col.update_one(user, last_action)
+
+class Education:
+    @staticmethod
+    def CheckLevel(id: int) -> int:
+        user = col.find_one({"_id": id})
+        return user["level"]
+    
+    @staticmethod
+    def CheckPoints(id: int) -> int:
+        user = col.find_one({"_id": id})
+        return user["study"]
+    
+    @staticmethod
+    def Update(id: int, value: int):
+        user = {"_id": id}
+        new_value = {f"$inc": {"study": value}}
+        col.update_one(user, new_value)
