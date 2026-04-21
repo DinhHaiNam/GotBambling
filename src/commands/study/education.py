@@ -23,6 +23,15 @@ async def education(ctx):
                         f"{next_level} point(s) -> Level {level + 1}"
             )
         )
+
+        if level >= 1:
+
+
+            embed.add_field(
+                name="Jobs can apply in next level",
+                value=""
+            )
+
         await ctx.send(embed=embed)
     
     else:

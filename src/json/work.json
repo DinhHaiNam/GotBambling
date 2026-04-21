@@ -1,23 +1,101 @@
 {
+    "full-time-job": [
+        {
+            "level": 0,
+            "jobs": []
+        },
+        {
+            "level": 1,
+            "jobs": {
+                "non-special": [
+                    {
+                        "name": "Seller",
+                        "desc": "Try to sell products to customers",
+                        "salary": 300,
+                        "bonus": 20
+                    },
+                    {
+                        "name": "Telesale",
+                        "desc": "Advise clients via phone and close deals",
+                        "salary": 280,
+                        "bonus": 50
+                    },
+                    {
+                        "name": "Construction Machine Operator",
+                        "desc": "Operate machines like excavators, cranes, forklifts",
+                        "salary": 320,
+                        "bonus": 10
+                    },
+                    {
+                        "name": "Warehouse Worker",
+                        "desc": "Manage inventory, pack and move goods",
+                        "salary": 290,
+                        "bonus": 30
+                    }
+                ],
+                "special": [
+                    {
+                        "name": "Internet Cafe Staff",
+                        "desc": "Assist customers with computers and manage time usage",
+                        "salary": 400,
+                        "bonus": 20
+                    },
+                    {
+                        "name": "Video Cutter",
+                        "desc": "Trim and cut simple video clips",
+                        "salary": 390,
+                        "bonus": 30
+                    },
+                    {
+                        "name": "Thumbnail Maker",
+                        "desc": "Create simple thumbnails for videos",
+                        "salary": 400,
+                        "bonus": 20
+                    },
+                    {
+                        "name": "Subtitle Typist",
+                        "desc": "Type subtitles for short videos",
+                        "salary": 290,
+                        "bonus": 30
+                    }
+                ]
+            }
+        }
+    ],
     "part-time-job": [
         {
-            "name": "dish washer",
-            "salary": 15,
+            "name": "Dish Washer",
+            "salary": 25,
             "bonus": 5
         },
         {
-            "name": "cleaner",
-            "salary": 20,
+            "name": "Cleaner",
+            "salary": 25,
             "bonus": 5
         },
         {
-            "name": "driver",     
-            "salary": 30,   
-            "bonus": 10
+            "name": "Driver",
+            "salary": 25,
+            "bonus": 5
         },
         {
-            "name": "shipper",         
-            "salary": 25,    
+            "name": "Shipper",
+            "salary": 25,
+            "bonus": 5
+        },
+        {
+            "name": "Waiter",
+            "salary": 25,
+            "bonus": 5
+        },
+        {
+            "name": "Barista",
+            "salary": 25,
+            "bonus": 5
+        },
+        {
+            "name": "Cashier",
+            "salary": 25,
             "bonus": 5
         }
     ],
@@ -33,6 +111,14 @@
         {
             "name": "didnt turn on the signal when turning",
             "forfeit": 15
+        },
+        {
+            "name": "overspeeding",
+            "forfeit": 40
+        },
+        {
+            "name": "not wearing helmet",
+            "forfeit": 20
         }
     ]
 }

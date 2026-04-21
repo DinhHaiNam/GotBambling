@@ -1,36 +1,29 @@
 {
     "lessons": [
-        {
-            "name": "math",
-            "point": 2
-        },
-        {
-            "name": "science",
-            "point": 2
-        },
-        {
-            "name": "history",
-            "point": 1
-        },
-        {
-            "name": "programming",
-            "point": 2
-        },
-        {
-            "name": "physic",
-            "point": 2
-        },
-        {
-            "name": "chemistry",
-            "point": 2
-        },
-        {
-            "name": "music",
-            "point": 1
-        },
-        {
-            "name": "art",
-            "point": 1
-        }
+        { "name": "math", "point": 2 },
+        { "name": "science", "point": 2 },
+        { "name": "history", "point": 1 },
+        { "name": "programming", "point": 2 },
+        { "name": "physic", "point": 2 },
+        { "name": "chemistry", "point": 2 },
+        { "name": "music", "point": 1 },
+        { "name": "art", "point": 1 },
+        { "name": "english", "point": 2 },
+        { "name": "geography", "point": 1 },
+        { "name": "biology", "point": 2 },
+        { "name": "physical education", "point": 1 },
+        { "name": "economics", "point": 2 },
+        { "name": "literature", "point": 1 },
+        { "name": "philosophy", "point": 2 },
+        { "name": "engineering basics", "point": 2 },
+        { "name": "computer basics", "point": 1 },
+        { "name": "graphic design", "point": 2 },
+        { "name": "communication skills", "point": 1 },
+        { "name": "marketing", "point": 2 },
+        { "name": "business studies", "point": 2 },
+        { "name": "psychology", "point": 2 },
+        { "name": "law basics", "point": 2 },
+        { "name": "statistics", "point": 2 },
+        { "name": "astronomy", "point": 1 }
     ]
 }

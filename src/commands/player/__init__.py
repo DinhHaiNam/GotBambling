@@ -5,5 +5,5 @@
 # For more information, see README.md and LICENSE
 # -------------------------------------------------------
 
-from src.commands.user.help import *
-from src.commands.user.wallet import *
+from src.commands.player.help import *
+from src.commands.player.wallet import *
