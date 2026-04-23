@@ -7,7 +7,7 @@
 
 from src.base import *
 from src.base.functions import load_json
-from src.database.mongodb import ExistUser, ToSAccepted, Pay, LastAction, Education
+from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check, LastAction, Education
 
 study_json = load_json("src/json/study.json") 
 lessons = study_json["lessons"]
@@ -18,6 +18,9 @@ async def study(ctx):
         now = datetime.now()
         date = str(now.date())
 
+        if Check(ctx.author.id, "wallet") < 5:
+            await ctx.send("Not enough money!")
+
         if LastAction.Check(ctx.author.id, "study") != date:
             lesson = random.choice(lessons)
             name = lesson["name"]
@@ -25,12 +28,12 @@ async def study(ctx):
 
             Education.Update(ctx.author.id, point)
             Pay(ctx.author.id, -5)
-            await ctx.send(f"You learned {name} and gained {point} study point(s)!")
+            await ctx.send(f"{ctx.message.author.display_name} learned {name} and gained {point} study point(s)!")
 
             LastAction.Update(ctx.author.id, "study", date)
         
         else:
-            await ctx.send("You learned today and cant learn more =(")
+            await ctx.send(f"{ctx.message.author.display_name} learned today and cant learn more =(")
 
     else:
         if ExistUser(ctx.author.id) == False:

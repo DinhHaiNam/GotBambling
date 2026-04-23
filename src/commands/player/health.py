@@ -6,13 +6,13 @@
 # -------------------------------------------------------
 
 from src.base import *
-from src.base.functions import shorthand
 from src.database.mongodb import ExistUser, ToSAccepted, Check
 
-@bot.command(aliases=["money", "cash"])
-async def wallet(ctx):
+@bot.command()
+async def health(ctx):
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
-        await ctx.send(f"{ctx.message.author.display_name}'s Balance: {shorthand(Check(ctx.author.id, "wallet"))}")
+        await ctx.send(f"{ctx.message.author.display_name}'s health: {int(Check(ctx.author.id, "healthy")) * 10}%")
+
     else:
         if ExistUser(ctx.author.id) == False:
             await ctx.send("You must register first!")

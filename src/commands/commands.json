@@ -61,7 +61,13 @@
             ]
         },
         {
-            "User": [
+            "Player": [
+                {
+                    "name": "health",
+                    "example": "gb health",
+                    "aliases": "",
+                    "about": "Check health status"
+                },
                 {
                     "name": "help",
                     "example": "gb help",

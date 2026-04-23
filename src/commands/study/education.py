@@ -6,14 +6,14 @@
 # -------------------------------------------------------
 
 from src.base import *
-from src.database.mongodb import ExistUser, ToSAccepted
-from src.database.mongodb import Education as edu
+from src.database.mongodb import ExistUser, ToSAccepted, Check
+from src.database.mongodb import Education
 
 @bot.command(aliases=["edu"])
 async def education(ctx):
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
-        level = edu.CheckLevel(ctx.author.id)
-        current_point = edu.CheckPoints(ctx.author.id)
+        level = Check(ctx.author.id, "level")
+        current_point = Check(ctx.author.id, "study")
         next_level = (level + 1) * 10 - current_point
         embed = discord.Embed(
             title=f"{ctx.message.author.display_name}'s education level",

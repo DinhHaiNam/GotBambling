@@ -12,6 +12,7 @@ client = MongoClient(os.getenv("mongo_db"), server_api=ServerApi('1'))
 db = client["gb"]
 col = db["user"]
 
+#register
 def ExistUser(id: int) -> bool:
     return col.find_one({"_id": id}) is not None
 
@@ -25,6 +26,7 @@ def UserRegister(id: int):
         "wallet": 50,
         "tos": False,
         "study": 0,
+        "healthy": 10,
         "level": 0,
         "job": [
             {
@@ -42,9 +44,9 @@ def UserRegister(id: int):
     }
     col.insert_one(new_user)
 
-def CheckWallet(id: int) -> int:
+def Check(id: int, value: str):
     user = col.find_one({"_id": id})
-    return user["wallet"]
+    return user[value]
 
 def Pay(id: int, amount: int):
     user = {"_id": id}
@@ -64,16 +66,6 @@ class LastAction:
         col.update_one(user, last_action)
 
 class Education:
-    @staticmethod
-    def CheckLevel(id: int) -> int:
-        user = col.find_one({"_id": id})
-        return user["level"]
-    
-    @staticmethod
-    def CheckPoints(id: int) -> int:
-        user = col.find_one({"_id": id})
-        return user["study"]
-    
     @staticmethod
     def Update(id: int, value: int):
         user = {"_id": id}

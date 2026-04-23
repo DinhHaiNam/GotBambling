@@ -1,0 +1,18 @@
+{
+    "pet": {
+        "cat": [],
+        "dog": []
+    },
+    "wife": {
+        "african": [],
+        "american": [],
+        "asian": [],
+        "european": []
+    },
+    "husband": {
+        "african": [],
+        "american": [],
+        "asian": [],
+        "european": []
+    }
+}
