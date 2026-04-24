@@ -6,11 +6,9 @@
 # -------------------------------------------------------
 
 from src.base import *
-from src.tasks import tasks_starter
 
-@bot.event
-async def on_ready():
-    await bot.tree.sync()
-    tasks_starter()
-
-    print(f"{bot.user} is online!")
+@tasks.loop(minutes=2)
+async def monitor_performance():
+    cpu = psutil.cpu_percent(interval=1)
+    memory = psutil.virtual_memory().percent
+    print(f"CPU: {cpu}%, Memory: {memory}%")

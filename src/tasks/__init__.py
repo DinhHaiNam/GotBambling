@@ -5,12 +5,7 @@
 # For more information, see README.md and LICENSE
 # -------------------------------------------------------
 
-from src.base import *
-from src.tasks import tasks_starter
+from src.tasks.monitor_performance import *
 
-@bot.event
-async def on_ready():
-    await bot.tree.sync()
-    tasks_starter()
-
-    print(f"{bot.user} is online!")
+def tasks_starter():
+    monitor_performance.start()

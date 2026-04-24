@@ -11,8 +11,9 @@ import math
 import discord
 import random
 import json
+import psutil
 from dotenv import load_dotenv
-from discord.ext import commands
+from discord.ext import commands, tasks
 from pymongo import *
 from pymongo.server_api import ServerApi
 from datetime import timedelta, datetime
