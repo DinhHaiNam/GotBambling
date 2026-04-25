@@ -8,3 +8,5 @@
 from src.commands.study.education import *
 from src.commands.study.exam import *
 from src.commands.study.study import *
+
+study_json = load_json("src/json/study.json") 

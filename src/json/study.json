@@ -25,5 +25,92 @@
         { "name": "law basics", "point": 2 },
         { "name": "statistics", "point": 2 },
         { "name": "astronomy", "point": 1 }
+    ],
+    "exam": [
+        {
+            "level": 0,
+            "tests": [
+                { "name": "", "id": 0, "question": "", "answer": "" }
+            ]
+        },
+        {
+            "level": 1,
+            "tests": [
+                { "name": "Math Basics 1", "id": 1, "question": "What is 2 + 3?", "answer": "5" },
+                { "name": "Math Basics 2", "id": 2, "question": "If you have 10 apples and eat 4, how many are left?", "answer": "6" },
+
+                { "name": "Science Basics 1", "id": 3, "question": "Water boils at what temperature in Celsius under normal conditions?", "answer": "100" },
+                { "name": "Science Basics 2", "id": 4, "question": "What gas do humans need to breathe to survive?", "answer": "oxygen" },
+
+                { "name": "History Basics 1", "id": 5, "question": "Who discovered America in 1492?", "answer": "christopher columbus" },
+                { "name": "History Basics 2", "id": 6, "question": "Which ancient civilization built the pyramids?", "answer": "egyptians" },
+
+                { "name": "Programming Basics 1", "id": 7, "question": "What symbol is commonly used to end a statement in many programming languages like C or Java?", "answer": ";" },
+                { "name": "Programming Basics 2", "id": 8, "question": "What is the result of 1 == 1 in most programming languages?", "answer": "true" },
+
+                { "name": "Physics Basics 1", "id": 9, "question": "", "answer": "" },
+                { "name": "Physics Basics 2", "id": 10, "question": "What is the unit of force?", "answer": "newton" },
+
+                { "name": "Chemistry Basics 1", "id": 11, "question": "What is the chemical symbol for oxygen?", "answer": "o" },
+                { "name": "Chemistry Basics 2", "id": 12, "question": "What is the pH value of pure water?", "answer": "7" },
+
+                { "name": "Music Basics 1", "id": 13, "question": "What is the name of the symbol that shows how fast music should be played?", "answer": "tempo" },
+                { "name": "Music Basics 2", "id": 14, "question": "How many strings does a standard guitar have?", "answer": "6" },
+
+                { "name": "Art Basics 1", "id": 15, "question": "", "answer": "" },
+                { "name": "Art Basics 2", "id": 16, "question": "What tool is commonly used to apply paint on canvas?", "answer": "brush" },
+
+                { "name": "English Basics 1", "id": 17, "question": "What is the past tense of 'go'?", "answer": "went" },
+                { "name": "English Basics 2", "id": 18, "question": "Which word is a noun: run, apple, quickly?", "answer": "apple" },
+
+                { "name": "Geography Basics 1", "id": 19, "question": "What is the capital of France?", "answer": "paris" },
+                { "name": "Geography Basics 2", "id": 20, "question": "Which ocean is the largest?", "answer": "pacific ocean" },
+
+                { "name": "Biology Basics 1", "id": 21, "question": "What is the basic unit of life?", "answer": "cell" },
+                { "name": "Biology Basics 2", "id": 22, "question": "Which organ pumps blood through the body?", "answer": "heart" },
+
+                { "name": "Physical Education 1", "id": 23, "question": "How many minutes are in a standard soccer match?", "answer": "90" },
+                { "name": "Physical Education 2", "id": 24, "question": "What exercise strengthens the heart and lungs?", "answer": "cardio" },
+
+                { "name": "Economics Basics 1", "id": 25, "question": "What do we call the amount of goods available for sale?", "answer": "supply" },
+                { "name": "Economics Basics 2", "id": 26, "question": "What term describes the desire to buy goods?", "answer": "demand" },
+
+                { "name": "Literature Basics 1", "id": 27, "question": "What is a story with a moral lesson called?", "answer": "fable" },
+                { "name": "Literature Basics 2", "id": 28, "question": "Who is the main character in a story called?", "answer": "protagonist" },
+
+                { "name": "Philosophy Basics 1", "id": 29, "question": "What is the study of right and wrong behavior called?", "answer": "ethics" },
+                { "name": "Philosophy Basics 2", "id": 30, "question": "What branch of philosophy studies existence?", "answer": "metaphysics" },
+
+                { "name": "Engineering Basics 1", "id": 31, "question": "What simple machine uses a rope and wheel to lift objects?", "answer": "pulley" },
+                { "name": "Engineering Basics 2", "id": 32, "question": "What material is most commonly used in construction for strength?", "answer": "steel" },
+
+                { "name": "Computer Basics 1", "id": 33, "question": "What device is used to point and click on a computer screen?", "answer": "mouse" },
+                { "name": "Computer Basics 2", "id": 34, "question": "What does RAM store temporarily?", "answer": "data" },
+
+                { "name": "Graphic Design 1", "id": 35, "question": "What does DPI measure in digital images?", "answer": "Dots per inch" },
+                { "name": "Graphic Design 2", "id": 36, "question": "Which file format is commonly used for images with transparency?", "answer": "png" },
+
+                { "name": "Communication Skills 1", "id": 37, "question": "What is communication without words called?", "answer": "nonverbal communication" },
+                { "name": "Communication Skills 2", "id": 38, "question": "What skill involves clearly expressing ideas?", "answer": "speaking" },
+
+                { "name": "Marketing Basics 1", "id": 39, "question": "What is promoting a product to customers called?", "answer": "advertising" },
+                { "name": "Marketing Basics 2", "id": 40, "question": "What do we call a group of potential customers?", "answer": "target market" },
+
+                { "name": "Business Studies 1", "id": 41, "question": "What is the main goal of most businesses?", "answer": "profit" },
+                { "name": "Business Studies 2", "id": 42, "question": "What do we call money spent to run a business?", "answer": "cost" },
+
+                { "name": "Psychology Basics 1", "id": 43, "question": "What is the study of human behavior called?", "answer": "psychology" },
+                { "name": "Psychology Basics 2", "id": 44, "question": "What term describes how someone feels?", "answer": "emotion" },
+
+                { "name": "Law Basics 1", "id": 45, "question": "What is breaking the law called?", "answer": "crime" },
+                { "name": "Law Basics 2", "id": 46, "question": "Who enforces the law?", "answer": "police" },
+
+                { "name": "Statistics Basics 1", "id": 47, "question": "What is the most frequent value in a dataset called?", "answer": "mode" },
+                { "name": "Statistics Basics 2", "id": 48, "question": "What is the middle value in an ordered dataset called?", "answer": "median" },
+
+                { "name": "Astronomy Basics 1", "id": 49, "question": "What is the center of our solar system?", "answer": "sun" },
+                { "name": "Astronomy Basics 2", "id": 50, "question": "What galaxy do we live in?", "answer": "milky way" }
+            ]
+        }
     ]
 }

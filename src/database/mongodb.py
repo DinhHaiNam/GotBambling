@@ -38,7 +38,11 @@ def UserRegister(id: int):
         "last_action": [
             {
                 "work": "",
-                "study": ""
+                "study": "",
+                "exam": {
+                    "date": "",
+                    "id": ""
+                }
             }
         ]
     }

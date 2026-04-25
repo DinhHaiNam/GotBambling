@@ -20,7 +20,7 @@ async def work(ctx):
         date = str(now.date())
 
         if LastAction.Check(ctx.author.id, "work") != date:
-            message = f"You worked as a"
+            message = f"{ctx.message.author.display_name} worked as a"
             salary = 0
 
             rand_job = random.choice(jobs)
@@ -43,7 +43,7 @@ async def work(ctx):
             LastAction.Update(ctx.author.id, "work", date)
 
         else:
-            await ctx.send("You worked today and cant work more =(")
+            await ctx.send(f"{ctx.message.author.display_name} worked today and cant work more =(")
             return
     
     else:
