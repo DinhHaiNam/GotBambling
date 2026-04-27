@@ -8,8 +8,8 @@
 from src.base import *
 from src.base.functions import GetBonus, GetPunish, load_json
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, LastAction
+from src.base.data import work_json
 
-work_json = load_json("src/json/work.json")
 jobs = work_json["part-time-job"]
 punishes = work_json["punish"]
 

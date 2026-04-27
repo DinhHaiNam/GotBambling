@@ -6,9 +6,8 @@
 # -------------------------------------------------------
 
 from src.base import *
-from src.base.functions import load_json
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check, LastAction, Education
-from src.commands.study import study_json
+from src.base.data import study_json
 
 lessons = study_json["lessons"]
 

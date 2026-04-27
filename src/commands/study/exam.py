@@ -8,7 +8,7 @@
 from src.base import *
 from src.database.mongodb import ExistUser, ToSAccepted, Check
 from src.database.mongodb import LastAction
-from src.commands.study import study_json
+from src.base.data import study_json
 
 tests = study_json["exam"]
 
