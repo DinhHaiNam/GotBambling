@@ -8,36 +8,39 @@
 from src.base import *
 from src.base.functions import load_json
 from src.database.mongodb import ExistUser, ToSAccepted
-from src.base.data import all_commands, embed_help
+from src.base.data import command_index, embed_help
 
 @bot.command(aliases=["h"])
 async def help(ctx, option: str = None):
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+
         if option is None:
             await ctx.send(embed=embed_help)
+            return
 
-        else:
-            for category in all_commands:
-                for category_name, command_list in category.items():
-                    for cmd in command_list:
-                        if cmd["name"] == option.lower():
-                            aliases = cmd.get("aliases")
-                            aliases_msg = f"**Aliases:** {aliases}\n" if aliases else ""
-                            embed = discord.Embed(
-                                title=f"About {option.lower()}",
-                                description=(
-                                    f"**Example:** `{cmd["example"]}`\n"
-                                    f"{aliases_msg}"
-                                    f"\n{cmd["about"]}"
-                                )
-                            )
-                            await ctx.send(embed=embed)
-                            return
-                        
+        option = option.lower()
+        cmd = command_index.get(option)
+
+        if not cmd:
             await ctx.send("Command not found!")
+            return
+
+        aliases = cmd.get("aliases")
+        aliases_msg = f"**Aliases:** {aliases}\n" if aliases else ""
+
+        embed = discord.Embed(
+            title=f"About {cmd['name']}",
+            description=(
+                f"**Example:** `{cmd['example']}`\n"
+                f"{aliases_msg}"
+                f"\n{cmd['about']}"
+            )
+        )
+
+        await ctx.send(embed=embed)
 
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not ExistUser(ctx.author.id):
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
-            await ctx.send("You must agree with our Term of Serivce")
+        elif not ToSAccepted(ctx.author.id):
+            await ctx.send("You must agree with our Terms of Service")

@@ -6,6 +6,7 @@
 # -------------------------------------------------------
 
 from src.base.modules import *
+from src.base.system import os_name
 
 def shorthand(num: int) -> str:
     if num >= 1000000:
@@ -37,5 +38,12 @@ def GetSick(per: int) -> bool:
     return rand1 == rand2
 
 def load_json(path: str):
+    print(f"Load: {path}")
     with open(path, "r") as f:
         return json.load(f)
+
+def clrscr():
+    if os_name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")

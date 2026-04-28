@@ -19,6 +19,7 @@ async def study(ctx):
 
         if Check(ctx.author.id, "wallet") < 5:
             await ctx.send("Not enough money!")
+            return
 
         if LastAction.Check(ctx.author.id, "study") != date:
             lesson = random.choice(lessons)

@@ -11,9 +11,11 @@ from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check
 
 @bot.command(aliases=["s"])
 async def slot(ctx, bet: int = 1):
+    bet = abs(bet) #:)))))
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
         if Check(ctx.author.id, "wallet") < bet:
             await ctx.send("Not enough money!")
+            return
 
         else:
             S1 = gb_random_slot()

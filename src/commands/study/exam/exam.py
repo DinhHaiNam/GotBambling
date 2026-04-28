@@ -15,9 +15,16 @@ tests = study_json["exam"]
 @bot.command()
 async def exam(ctx):
     if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
-        player_level = int(Check(ctx.author.id, "level"))
-        level_tests = tests[player_level + 1]
-        random_test = random.choice(level_tests)
+        now = datetime.now()
+        date = now.date()
+
+        player_last_exam = LastAction.Check(ctx.author.id, "exam")
+        last_date = player_last_exam["date"]
+
+        if date != last_date:
+            player_level = Check(ctx.author.id, "level")
+            test = random.choice(tests[player_level + 1]["tests"])
+            
 
     else:
         if ExistUser(ctx.author.id) == False:

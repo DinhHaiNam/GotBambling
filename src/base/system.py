@@ -5,7 +5,6 @@
 # For more information, see README.md and LICENSE
 # -------------------------------------------------------
 
-from src.commands.player.help import *
-from src.commands.player.wallet import *
-from src.commands.player.health import *
-from src.commands.player.pay import *
+from src.base.modules import *
+
+os_name = os.name

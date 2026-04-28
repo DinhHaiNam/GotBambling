@@ -8,6 +8,8 @@
 from src.base.bot import *
 from src.commands import *
 from src.events import *
+from src.base.functions import clrscr
 
 def GotBambling():
+    clrscr()
     bot.run(TOKEN)

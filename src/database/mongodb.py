@@ -10,14 +10,15 @@ from src.base.modules import *
 load_dotenv()
 client = MongoClient(os.getenv("mongo_db"), server_api=ServerApi('1'))
 db = client["gb"]
-col = db["user"]
+usr = db["user"]
+net = db["network"]
 
 #register
 def ExistUser(id: int) -> bool:
-    return col.find_one({"_id": id}) is not None
+    return usr.find_one({"_id": id}) is not None
 
 def ToSAccepted(id: int) -> bool:
-    user = col.find_one({"_id": id})
+    user = usr.find_one({"_id": id})
     return user["tos"]
 
 def UserRegister(id: int):
@@ -28,50 +29,43 @@ def UserRegister(id: int):
         "study": 0,
         "healthy": 10,
         "level": 0,
-        "job": [
-            {
-                "name": "",
-                "salary": 0,
-                "bonus": 0
+        "job": None,
+        "last_action": {
+            "work": "",
+            "study": "",
+            "exam": {
+                "date": "",
+                "id": ""
             }
-        ],
-        "last_action": [
-            {
-                "work": "",
-                "study": "",
-                "exam": {
-                    "date": "",
-                    "id": ""
-                }
-            }
-        ]
+        }
     }
-    col.insert_one(new_user)
+    usr.insert_one(new_user)
 
 def Check(id: int, value: str):
-    user = col.find_one({"_id": id})
+    user = usr.find_one({"_id": id})
     return user[value]
 
 def Pay(id: int, amount: int):
     user = {"_id": id}
     new_balance = {"$inc": {"wallet": amount}}
-    col.update_one(user, new_balance)
+    usr.update_one(user, new_balance)
 
 class LastAction:
     @staticmethod
     def Check(id: int, option: str) -> str:
-        user = col.find_one({"_id": id})
-        return user["last_action"][0][option]
-    
+        user = usr.find_one({"_id": id})
+        return user.get("last_action", {}).get(option, "")
+
     @staticmethod
     def Update(id: int, option: str, value: str):
-        user = {"_id": id}
-        last_action = {"$set": {f"last_action.0.{option}": value}}
-        col.update_one(user, last_action)
+        usr.update_one(
+            {"_id": id},
+            {"$set": {f"last_action.{option}": value}}
+        )
 
 class Education:
     @staticmethod
     def Update(id: int, value: int):
         user = {"_id": id}
         new_value = {f"$inc": {"study": value}}
-        col.update_one(user, new_value)
+        usr.update_one(user, new_value)

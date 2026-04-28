@@ -12,6 +12,7 @@ import discord
 import random
 import json
 import psutil
+import time
 from dotenv import load_dotenv
 from discord.ext import commands, tasks
 from pymongo import *
