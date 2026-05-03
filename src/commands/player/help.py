@@ -12,8 +12,10 @@ from src.base.data import command_index, embed_help
 
 @bot.command(aliases=["h"])
 async def help(ctx, option: str = None):
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
 
+    if exist and tos:
         if option is None:
             await ctx.send(embed=embed_help)
             return
@@ -40,7 +42,7 @@ async def help(ctx, option: str = None):
         await ctx.send(embed=embed)
 
     else:
-        if not ExistUser(ctx.author.id):
+        if not exist:
             await ctx.send("You must register first!")
-        elif not ToSAccepted(ctx.author.id):
+        elif not tos:
             await ctx.send("You must agree with our Terms of Service")

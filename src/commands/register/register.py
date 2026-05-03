@@ -10,9 +10,12 @@ from src.database.mongodb import UserRegister, ExistUser, ToSAccepted
 
 @bot.command()
 async def register(ctx):
-    if ExistUser(ctx.author.id) == False or ToSAccepted(ctx.author.id) == False:
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if not exist and not tos:
         await ctx.send("To register, you must agree with out Term of Service:\n-\n-\nBy using `gb confirm` you accepted with our ToS.")
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             UserRegister(ctx.author.id)
     else:
         await ctx.send("You already registered!")

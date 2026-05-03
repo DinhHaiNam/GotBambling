@@ -7,13 +7,16 @@
 
 from src.base import *
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check, LastAction, Education
-from src.base.data import study_json
-
-lessons = study_json["lessons"]
+from src.base.data import lessons
 
 @bot.command()
 async def study(ctx):
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
+        name = ctx.message.author.display_name
+
         now = datetime.now()
         date = str(now.date())
 
@@ -28,15 +31,15 @@ async def study(ctx):
 
             Education.Update(ctx.author.id, point)
             Pay(ctx.author.id, -5)
-            await ctx.send(f"{ctx.message.author.display_name} learned {name} and gained {point} study point(s)!")
+            await ctx.send(f"{name} learned {name} and gained {point} study point(s)!")
 
             LastAction.Update(ctx.author.id, "study", date)
         
         else:
-            await ctx.send(f"{ctx.message.author.display_name} learned today and cant learn more =(")
+            await ctx.send(f"{name} learned today and cant learn more =(")
 
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

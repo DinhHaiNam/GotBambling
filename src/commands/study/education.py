@@ -11,7 +11,10 @@ from src.database.mongodb import Education
 
 @bot.command(aliases=["edu"])
 async def education(ctx):
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
         level = Check(ctx.author.id, "level")
         current_point = Check(ctx.author.id, "study")
         next_level = (level + 1) * 10 - current_point
@@ -35,7 +38,7 @@ async def education(ctx):
         await ctx.send(embed=embed)
     
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

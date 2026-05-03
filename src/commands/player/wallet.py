@@ -11,10 +11,13 @@ from src.database.mongodb import ExistUser, ToSAccepted, Check
 
 @bot.command(aliases=["money", "cash"])
 async def wallet(ctx):
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
         await ctx.send(f"{ctx.message.author.display_name}'s Balance: {shorthand(Check(ctx.author.id, "wallet"))}")
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

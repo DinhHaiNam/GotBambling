@@ -10,29 +10,33 @@ from src.base.random_algo import gb_random_cf
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check
 
 @bot.command(aliases=["cf", "coin"])
-async def coinflip(ctx, choices: str = "n", bet: int = 1):
-    bet = abs(bet) #:)))))
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+async def coinflip(ctx, choices: str, bet: int = 1):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
+        bet = abs(bet) #:)))))
+        name = ctx.message.author.display_name
+
         if Check(ctx.author.id, "wallet") < bet:
             await ctx.send("Not enough money!")
             return
 
         else:
             if choices.lower() != "n" and choices.lower() != "s":
-                return
-            
-            else:
-                rand = gb_random_cf()
+                choices = "n"
+        
+            rand = gb_random_cf()
 
-                if (choices.lower() == "s" and rand == 0) or (choices.lower() == "n" and rand == 1):
-                    await ctx.send(f"{ctx.message.author.display_name} won **{bet}** =)")
-                    Pay(ctx.author.id, bet)
-                else:
-                    await ctx.send(f"{ctx.message.author.display_name} lost **-{bet}** =(")
-                    Pay(ctx.author.id, -bet)
+            if (choices.lower() == "s" and rand == 0) or (choices.lower() == "n" and rand == 1):
+                await ctx.send(f"{name} won **{bet}** =)")
+                Pay(ctx.author.id, bet)
+            else:
+                await ctx.send(f"{name} lost **-{bet}** =(")
+                Pay(ctx.author.id, -bet)
     
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

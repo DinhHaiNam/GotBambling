@@ -8,22 +8,24 @@
 from src.base import *
 from src.base.functions import GetBonus, GetPunish, load_json
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, LastAction
-from src.base.data import work_json
-
-jobs = work_json["part-time-job"]
-punishes = work_json["punish"]
+from src.base.data import part_time_jobs, punishes
 
 @bot.command(aliases=["w"])
 async def work(ctx):
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
+        name = ctx.message.author.display_name
+
         now = datetime.now()
         date = str(now.date())
 
         if LastAction.Check(ctx.author.id, "work") != date:
-            message = f"{ctx.message.author.display_name} worked as a"
+            message = f"{name} worked as a"
             salary = 0
 
-            rand_job = random.choice(jobs)
+            rand_job = random.choice(part_time_jobs)
             job_name = rand_job["name"]
             message += f" {job_name}"
             salary += (rand_job["salary"] + GetBonus(rand_job["bonus"]))
@@ -43,11 +45,11 @@ async def work(ctx):
             LastAction.Update(ctx.author.id, "work", date)
 
         else:
-            await ctx.send(f"{ctx.message.author.display_name} worked today and cant work more =(")
+            await ctx.send(f"{name} worked today and cant work more =(")
             return
     
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

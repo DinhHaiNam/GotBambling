@@ -11,8 +11,13 @@ from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check
 
 @bot.command(aliases=["s"])
 async def slot(ctx, bet: int = 1):
-    bet = abs(bet) #:)))))
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
+        bet = abs(bet) #:)))))
+        name = ctx.message.author.display_name
+
         if Check(ctx.author.id, "wallet") < bet:
             await ctx.send("Not enough money!")
             return
@@ -35,17 +40,17 @@ async def slot(ctx, bet: int = 1):
                 elif S1 == 2:
                     bet *= 2
                 
-                message += f"{ctx.message.author.display_name} Won **{bet}** =)"
+                message += f"{name} Won **{bet}** =)"
                 Pay(ctx.author.id, bet)
             
             else:
-                message += f"{ctx.message.author.display_name} Lost **-{bet}** =("
+                message += f"{name} Lost **-{bet}** =("
                 Pay(ctx.author.id, -bet)
 
             await ctx.send(message)
             
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

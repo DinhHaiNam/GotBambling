@@ -10,30 +10,38 @@ from src.base.random_algo import gb_random_dice
 from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check
 
 @bot.command(aliases=["d"])
-async def dice(ctx, choice: int = 1, bet: int = 1):
-    bet = abs(bet) #:)))))
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+async def dice(ctx, choice: int, bet: int = 1):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
+        bet = abs(bet) #:)))))
+        name = ctx.message.author.display_name
+
         if Check(ctx.author.id, "wallet") < bet:
             await ctx.send("Not enough money!")
             return
         
         else:
+            if choice not in [1, 2, 3, 4, 5, 6]:
+                choice = random.randrange(1, 6)
+
             dice = gb_random_dice()
-            message = f"DICE: {dice}\n"
+            message = f"{name} choose: {choice} and DICE: {dice}\n"
 
             if choice == dice:
                 bet *= 3
-                message += f"{ctx.message.author.display_name} Won **{bet}** =)"
+                message += f"{name} Won **{bet}** =)"
                 Pay(ctx.author.id, bet)
             
             else:
-                message += f"{ctx.message.author.display_name} Lost **-{bet}** =("
+                message += f"{name} Lost **-{bet}** =("
                 Pay(ctx.author.id, -bet)
 
             await ctx.send(message)
 
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

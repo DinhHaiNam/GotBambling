@@ -10,7 +10,10 @@ from src.database.mongodb import ExistUser, ToSAccepted, Pay, Check
 
 @bot.command(aliases=["give"])
 async def pay(ctx, player: discord.User, amount: int):
-    if ExistUser(ctx.author.id) and ToSAccepted(ctx.author.id):
+    exist = bool(ExistUser(ctx.author.id))
+    tos = bool(ToSAccepted(ctx.author.id))
+
+    if exist and tos:
         if amount > 0:
             if Check(ctx.author.id, "wallet") < amount:
                 await ctx.send("Not enough money!")
@@ -28,7 +31,7 @@ async def pay(ctx, player: discord.User, amount: int):
             await ctx.send(f"{ctx.message.author.display_name} cant stole money!")
     
     else:
-        if ExistUser(ctx.author.id) == False:
+        if not exist:
             await ctx.send("You must register first!")
-        elif ToSAccepted(ctx.author.id) == False:
+        elif not tos:
             await ctx.send("You must agree with our Term of Serivce")

@@ -10,13 +10,22 @@ from src.base.functions import load_json, clrscr
 
 print("Loading data...")
 
+#study
 study_json = load_json("src/json/study.json")
+lessons = study_json["lessons"]
+
+
+
+#work
 work_json = load_json("src/json/work.json")
-commands_json = load_json("src/commands/commands.json")
+part_time_jobs = work_json["part-time-job"]
+punishes = work_json["punish"]
 
 
 
 # commands - help
+commands_json = load_json("src/commands/commands.json")
+
 all_commands = commands_json["commands"]
 
 embed_help = discord.Embed(
